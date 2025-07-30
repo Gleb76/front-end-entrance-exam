@@ -10,6 +10,9 @@ body {
   padding: 20px;
   min-width: 320px;
   font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* Общие стили для контейнеров */
