@@ -9,7 +9,7 @@ body {
   margin: 0;
   padding: 20px;
   min-width: 320px;
-  font-family: inherit; /* Наследуем из :root */
+  font-family: inherit;
 }
 
 /* Общие стили для контейнеров */
@@ -31,9 +31,17 @@ body {
   object-fit: cover;
 }
 
-.rounded-box,
-.rounded-box-language {
+.rounded-box {
   width: 124px;
+  height: 124px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  padding: 12px;
+  box-sizing: border-box;
+  position: relative;
+}
+.rounded-box-language {
+  width: 267px;
   height: 124px;
   border-radius: 12px;
   background: #F0F0F0;
@@ -44,18 +52,27 @@ body {
   box-sizing: border-box;
 }
 
-.rounded-box-language {
-  width: 267px;
-}
+/* .rounded-box-language {
+  
+} */
 
 .resume-header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  position: relative;
   width: 100%;
+  height: 100%;
+}
+
+.helloToResume {
+  position: absolute;
+  font-size: 10px;
+  color: #000000;
+  margin: 0;
+  line-height: 1;
 }
 
 .resume-header h1 {
+  position: absolute;
+  top: 58px;
   font-weight: 600;
   font-size: 14px;
   color: #000000;
@@ -63,20 +80,14 @@ body {
   line-height: 1;
 }
 
-.helloToResume,
+
 .profession {
+  position: absolute;
+  top: 64px;
   font-size: 10px;
-  color: #000000;
+  color: #5C5C5C;
   margin: 0;
   line-height: 1;
-}
-
-.helloToResume {
-  margin-bottom: 46px;
-}
-
-.profession {
-  color: #5C5C5C;
 }
 
 /* Стили для языков */
@@ -87,7 +98,7 @@ body {
   color: #000000;
   margin: 0;
   line-height: 1;
-  margin-bottom: 36px;
+  margin-bottom: 16px;
 }
 .languagesLevel {
   width: 100%;
@@ -121,8 +132,9 @@ body {
   height: 100%;
   background: #28D979;
   border-radius: 2px;
-  display: block; /* Добавляем это свойство */
+  display: block;
 }
+
 /* Стили для Experience */
 .large-box {
   width: 411px;
@@ -134,7 +146,7 @@ body {
 }
 
 .experience-title {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   color: #000000;
   margin: 0 0 12px 0;
@@ -144,27 +156,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-
-.experience-item {
-  width: 387px;
-  border-radius: 8px;
-  background: #FFFFFF;
-}
-
-.first-item {
-  height: 76px;
-  background: #28D979 !important; /* Используем !important, чтобы переопределить другие стили */
-}
-.second-item { height: 108px; }
-.third-item { height: 96px; }
-
-
-.small-box {
-  width: 124px;
-  height: 359px;
-  border-radius: 12px;
-  background: #F0F0F0;
 }
 
 .experience-item {
@@ -179,39 +170,59 @@ body {
 
 .first-item {
   background: #28D979 !important;
-  min-height: 76px; /* Use min-height instead of fixed height */
+  height: 76px;
 }
+.second-item { height: 108px;}
+.third-item {
+  height: 96px;
+  padding: 8px 12px;
+}
+
 
 .experience-content {
   display: flex;
   width: 100%;
   padding-top: 8px;
-  gap: 20px; /* Space between role info and description */
+  gap: 0px;
+  align-items: flex-start;
 }
 
 .role-info {
-  width: 40%; /* Adjust as needed */
+  width: 30%;
+  min-width: 140px;
+}
+
+.role-info-graphic {
+  width: 30%;
   min-width: 150px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  color: #000000;
 }
 
 .job-description {
-  width: 60%; /* Takes remaining space */
-  font-size: 10px;
+  font-family: 'Poppins', sans-serif;
+  width: 70%;
+  font-size: 8px;
+  font-weight: 500;
   color: #EBF9F2;
-  line-height: 1.4;
-  padding-right: 8px;
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside;
 }
 
 
 .roleName {
   font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 10px;
   color: #FFFFFF;
-  margin-bottom: 4px;
 }
 
 .company-info {
+  font-weight: 400;
+  font-size: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -219,19 +230,21 @@ body {
 
 .companyName, .info {
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 10px;
+  font-weight: 400;
+  font-size: 8px;
   color: #EBF9F2;
 }
 
 .separator {
   color: #EBF9F2;
+  font-size: 8px;
+  font-weight: 400;
 }
 
 .experience-date {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 8px;
   color: #FFFFFF;
   margin: 0;
 }
@@ -239,109 +252,442 @@ body {
 .experience-badge {
   position: absolute;
   right: 8px;
-  top: 8px;
-  background: #F0F0F0;
-  border-radius: 12px;
-  padding: 4px 8px;
+  top: 6px;
+  background: #7E731266;
+  border-radius: 59px;
+  padding: 2px 6px;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  font-size: 8px;
+  color: #DDF163;
+}
+.second-item .experience-date,
+.second-item .role-info,
+.second-item .type-of-role {
+  font-family: 'Poppins', sans-serif;
+  color: #000000;
+}
+
+.second-item .experience-date {
+  font-size: 8px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 0 8px 0; 
+}
+
+.second-item .role-info {
   font-size: 10px;
-  color: #5C5C5C;
+  font-weight: 500;
 }
-/* */
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+
+.second-item .type-of-role {
+  font-size: 8px;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #3F3D3D;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+.experience-content-wrapper {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  gap: 20px; /* Расстояние между ролью и списком */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Левая часть (роль и тип работы) */
+.role-info-wrapper {
+  width: 36%; /* Можно регулировать */
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.tasks-list {
+  width: 64%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.tasks-list li {
+  position: relative;
+  font-size: 8px;
+  font-weight: 400;
+  color: #000000;
 }
 
-.card {
-  padding: 2em;
+.tasks-list li::before {
+  content: "•";
+  position: absolute;
+  color: #000000;
+  font-size: 8px;
+  font-weight: 400;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.third-item .experience-date {
+  font-size: 8px;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: #000000;
+  margin: 0 0 8px 0; 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+.third-item .role-info {
+  font-size: 10px;
+  font-weight: 500;
+  color: #000000;
+  /* margin-bottom: 4px; */
+}
+
+.third-item .type-of-role {
+  font-size: 8px;
+  font-weight: 400;
+  color: #3F3D3D;
+}
+
+/* Общие стили для списка задач (можно вынести в общие стили) */
+.tasks-list {
+  width: 70%;
+  margin: 0;
+  padding-left: 16px;
+  list-style-type: none;
+}
+
+.tasks-list li {
+  position: relative;
+  font-size: 8px;
+  font-weight: 400;
+  color: #000000;
+  /* margin-bottom: 6px; */
+  line-height: 1.4;
+}
+
+.tasks-list li::before {
+  content: "•";
+  position: absolute;
+  left: -12px;
+  color: #000000;
+  font-size: 8px;
+}
+
+.experience {
+  font-size: 8px;
+  font-weight: 400;
+  color: #3F3D3D;
+}
+.separator-experience {
+  font-size: 8px;
+  font-weight: 400;
+  color:#000000
+}
+.info-intern {
+  font-size: 8px;
+  font-weight: 400;
+  color: #3F3D3D;
+}
+
+/* Tools */
+
+.small-box {
+  width: 124px;
+  height: 359px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+.tools-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.tools-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  justify-items: center;
+}
+
+.tool-box {
+  width: 76px;
+  position: relative;
+  border-radius: 8px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  /* margin: 0 0 0 8px; */
+  padding: 16px 16px 8px;
+}
+
+/* Специфичные размеры блоков */
+.design-box {
+  width: 76;
+  height: 111px;
+}
+
+.no-code-box, .ai-box {
+  width: 76;
+  height: 86px;
+}
+
+/* Стили для бейджей */
+.tool-badge {
+  position: absolute;
+  top: -5px;
+  left: 23px;
+  background: #000000;
+  color: white;
+  font-size: 5px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 59px;
+  white-space: nowrap;
+}
+
+.ai-badge {
+  left: 6px;
+  right: 6px;
+  white-space: nowrap;
+}
+.education-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.education-section {
+  width: 268px;
+}
+
+.education-box {
+  width: 268px;
+  height: 289px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.education-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin: 0 0 12px 0;
+}
+
+.boxes-container {
+  display: flex;
+  gap: 12px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ui-box {
+  width: 116px;
+  height: 120px;
+  border-radius: 12px;
+  background: #28D979;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-date {
+  font-weight: 500;
+  font-size: 10px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.design-role {
+  font-weight: 500;
+  font-size: 10px;
+  color: #FFFFFF;
+  margin-top: 6px;
+}
+
+.ui-heart {
+  position: absolute;
+  right: 8px;
+  top: 2px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.skill-tag {
+  font-weight: 400;
+  font-size: 8px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.course-info {
+  font-weight: 400;
+  font-size: 8px;
+  color: #FFFFFF;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+/* law */
+.law-box {
+  width: 116px;
+  height: 108px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.law-date {
+  font-weight: 500;
+  font-size: 10px;
+  color: #000000;
+  margin: 0;
+}
+
+.law-role {
+  font-weight: 500;
+  font-size: 10px;
+  color: #000000;
+  margin-top: 6px;
+}
+
+
+.skills-container-law {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.skill-tag-law {
+  font-weight: 400;
+  font-size: 8px;
+  color: #149063;
+  margin: 0;
+}
+
+.university-info {
+  font-weight: 400;
+  font-size: 8px;
+  color: #000000;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+}
+
+/* graphic */
+.graphic-box {
+  width: 116px;
+  height: 96px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.graphic-date {
+  font-weight: 500;
+  font-size: 10px;
+  color: #000000;
+  margin: 0;
+}
+
+.graphic-role {
+  font-weight: 500;
+  font-size: 10px;
+  color: #000000;
+  margin-top: 6px;
+}
+
+
+.skills-container-graphic {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.skill-tag-graphic {
+  font-weight: 400;
+  font-size: 8px;
+  color: #149063;
+  margin: 0;
+}
+
+.right-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.interests-section {
+  width: 267px;
+  height: 177px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.interests-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin: 0 0 12px 0;
+}
+
+.interests-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.interest-tag {
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  padding: 4px 10px;
+  background: #FFFFFF;
+  border-radius: 40px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+}
+
+
+.chat-section {
+  width: 267px;
+  height: 92px;
+  border-radius: 12px;
+  background: #000000;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.chat-title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFFFF;
+  margin: 0 0 12px 0;
+}
+.chat-mail {
+font-weight: 500;
+  font-size: 10px;
+  color: #DDDDDD;
+}
+
