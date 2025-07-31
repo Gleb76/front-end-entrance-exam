@@ -1,55 +1,74 @@
-import "../css/base.css";
-import "../css/components/header.css";
-import "../css/components/experience.css";
-import "../css/components/tools.css";
-import "../css/components/education.css";
-import "../css/components/interests.css";
-import "../css/utilities.css";
 import html2pdf from 'html2pdf.js';
 
 
-document.getElementById("downloadPdf").addEventListener("click", function(e) {
+document.getElementById("downloadPdf").addEventListener("click", async function(e) {
+  e.preventDefault();
   createRipple(e);
   
   const element = document.getElementById("resume-content");
+  if (!element) {
+    alert('Элемент для PDF не найден!');
+    return;
+  }
+
   const opt = {
     margin: 10,
     filename: "resume_gleb_klyha.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, logging: true },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    image: { 
+      type: "jpeg", 
+      quality: 0.98 
+    },
+    html2canvas: { 
+      scale: 2,
+      logging: true,
+      allowTaint: true,
+      useCORS: true
+    },
+    jsPDF: { 
+      unit: "mm", 
+      format: "a4", 
+      orientation: "portrait" 
+    }
   };
 
-  html2pdf()
-    .set(opt)
-    .from(element)
-    .save()
-    .catch((error) => {
-      console.error("Ошибка при генерации PDF:", error);
-      alert("Произошла ошибка при генерации PDF. Проверьте консоль для деталей.");
-    });
+  try {
+    const worker = html2pdf().set(opt).from(element);
+    await worker.save();
+  } catch (error) {
+    console.error("PDF Error:", error);
+    alert("Ошибка: " + error.message);
+  }
 });
 
 function setupEditable() {
   const saveEdit = (element) => {
-    const id = element.dataset.id;
-    const key = `resumeText_${id}`;
-    localStorage.setItem(key, element.textContent);
-    element.contentEditable = false;
-    element.classList.remove('editing');
-    
-    if (element.classList.contains('multi-line')) {
-      element.innerHTML = element.textContent.replace(/\n/g, '<br>');
+    try {
+      const id = element.dataset.id;
+      const key = `resumeText_${id}`;
+      sessionStorage.setItem(key, element.textContent);
+      element.contentEditable = false;
+      element.classList.remove('editing');
+      
+      if (element.classList.contains('multi-line')) {
+        element.innerHTML = element.textContent.replace(/\n/g, '<br>');
+      }
+    } catch (e) {
+      console.error('Storage error:', e);
     }
   };
 
   document.querySelectorAll('.editable').forEach(element => {
-    const id = element.dataset.id;
-    const key = `resumeText_${id}`;
-
-    if (localStorage.getItem(key)) {
-      element.textContent = localStorage.getItem(key);
+    try {
+      const id = element.dataset.id;
+      const key = `resumeText_${id}`;
+      
+      if (sessionStorage.getItem(key)) {
+        element.textContent = sessionStorage.getItem(key);
+      }
+    } catch (e) {
+      console.error('Storage read error:', e);
     }
+    
 
     element.addEventListener('dblclick', () => {
       element.contentEditable = true;
