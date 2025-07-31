@@ -55,9 +55,7 @@ body {
   box-sizing: border-box;
 }
 
-/* .rounded-box-language {
-  
-} */
+
 
 .resume-header {
   position: relative;
@@ -328,7 +326,6 @@ body {
   font-size: 10px;
   font-weight: 500;
   color: #000000;
-  /* margin-bottom: 4px; */
 }
 
 .third-item .type-of-role {
@@ -337,7 +334,6 @@ body {
   color: #3F3D3D;
 }
 
-/* Общие стили для списка задач (можно вынести в общие стили) */
 .tasks-list {
   width: 70%;
   margin: 0;
@@ -350,7 +346,6 @@ body {
   font-size: 8px;
   font-weight: 400;
   color: #000000;
-  /* margin-bottom: 6px; */
   line-height: 1.4;
 }
 
@@ -406,7 +401,7 @@ body {
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 16px;
   justify-items: center;
 }
 
@@ -416,11 +411,10 @@ body {
   border-radius: 8px;
   background: #FFFFFF;
   box-sizing: border-box;
-  /* margin: 0 0 0 8px; */
-  padding: 16px 16px 8px;
+  padding: 16px 16px 8px 12px;
 }
 
-/* Специфичные размеры блоков */
+
 .design-box {
   width: 76;
   height: 111px;
@@ -693,4 +687,131 @@ font-weight: 500;
   font-size: 10px;
   color: #DDDDDD;
 }
+.download-btn {
+  position: fixed;
+  top: 20px;
+  /* right: 20px; */
+  /* padding: 10px 15px; */
+  background-color: #28D979;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
 
+.download-btn:hover {
+  background-color: #20b864;
+}
+
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+  }
+  
+  .experience-section {
+    flex-direction: column-reverse;
+  }
+
+  .boxes-container {
+    flex-direction: column;
+  }
+
+  .left-column, 
+  .right-sections {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .experience-item {
+    width: 100% !important;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Добавьте к элементам, которые должны иметь эффект */
+.download-btn,
+.experience-item,
+.rounded-box-language,
+.rounded-box,
+.ui-box,
+.law-box,
+.graphic-box,
+.chat-section {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Добавляем в конец файла */
+
+/* Стили для редактируемых элементов */
+.editable {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editable.editing {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  cursor: text;
+  position: relative;
+}
+
+/* Для многострочных элементов */
+.multi-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  display: block;
+}
+
+/* Ограничиваем размеры элементов */
+.experience-item .editable,
+.role-info .editable,
+.company-info .editable {
+  max-width: 90%;
+}
+
+.job-description .editable,
+.tasks-list .editable {
+  max-height: 3em;
+  display: inline-block;
+}
+
+.editable.editing.multi-line {
+  max-height: none;
+  overflow: auto;
+}
