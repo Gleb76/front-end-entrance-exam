@@ -7,6 +7,7 @@ import "../css/components/interests.css";
 import "../css/utilities.css";
 import html2pdf from 'html2pdf.js';
 
+
 document.getElementById("downloadPdf").addEventListener("click", function(e) {
   createRipple(e);
   
@@ -29,7 +30,6 @@ document.getElementById("downloadPdf").addEventListener("click", function(e) {
     });
 });
 
-// Функция для редактирования контента
 function setupEditable() {
   const saveEdit = (element) => {
     const id = element.dataset.id;

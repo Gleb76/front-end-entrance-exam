@@ -1,6 +1,3 @@
-
-
-
 /* Медиа-запросы */
 @media (max-width: 768px) {
   .resume-container {
@@ -51,7 +48,6 @@
   }
 }
 
-/* Добавьте к элементам, которые должны иметь эффект */
 .download-btn,
 .experience-item,
 .rounded-box-language,
@@ -65,10 +61,7 @@
   cursor: pointer;
 }
 
-
-/* Стили для редактируемых элементов */
 .editable {
-  display: inline-block;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
