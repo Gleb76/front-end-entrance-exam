@@ -1,0 +1,109 @@
+
+
+
+/* Медиа-запросы */
+@media (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+  }
+  
+  .experience-section {
+    flex-direction: column-reverse;
+  }
+
+  .boxes-container {
+    flex-direction: column;
+  }
+
+  .left-column, 
+  .right-sections {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  .experience-item {
+    width: 100% !important;
+  }
+  
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Добавьте к элементам, которые должны иметь эффект */
+.download-btn,
+.experience-item,
+.rounded-box-language,
+.rounded-box,
+.ui-box,
+.law-box,
+.graphic-box,
+.chat-section {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+/* Стили для редактируемых элементов */
+.editable {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.editable.editing {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  cursor: text;
+  position: relative;
+}
+
+.multi-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  display: block;
+}
+
+.experience-item .editable,
+.role-info .editable,
+.company-info .editable {
+  max-width: 90%;
+}
+
+.job-description .editable,
+.tasks-list .editable {
+  max-height: 3em;
+  display: inline-block;
+}
+
+.editable.editing.multi-line {
+  max-height: none;
+  overflow: auto;
+}

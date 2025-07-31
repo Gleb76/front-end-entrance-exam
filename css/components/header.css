@@ -1,0 +1,106 @@
+.profile-photo {
+  width: 124px;
+  height: 124px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.rounded-box {
+  width: 124px;
+  height: 124px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  padding: 12px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.rounded-box-language {
+  width: 267px;
+  height: 124px;
+  border-radius: 12px;
+  background: #F0F0F0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.resume-header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.helloToResume {
+  position: absolute;
+  font-size: 10px;
+  color: #000000;
+  margin: 0;
+  line-height: 1;
+}
+
+.resume-header h1 {
+  position: absolute;
+  top: 58px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+  line-height: 1;
+}
+
+.profession {
+  position: absolute;
+  top: 64px;
+  font-size: 10px;
+  color: #5C5C5C;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Стили для языков */
+
+.language-header {
+  font-weight: 500;
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.languagesLevel {
+  width: 100%;
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.language-name {
+  font-size: 10px;
+  color: #000000;
+  min-width: 60px;
+  margin-right: 10px;
+}
+
+.language-progress-container {
+  flex-grow: 1;
+}
+
+.language-progress {
+  height: 11px;
+  background: #F0F0F0;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.language-progress-bar {
+  height: 100%;
+  background: #28D979;
+  border-radius: 2px;
+  display: block;
+}
