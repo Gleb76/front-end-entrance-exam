@@ -44,8 +44,6 @@ body {
 .download-btn {
   position: fixed;
   top: 20px;
-  /* right: 20px; */
-  /* padding: 10px 15px; */
   background-color: #28D979;
   color: white;
   border: none;
